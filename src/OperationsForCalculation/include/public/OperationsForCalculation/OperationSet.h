@@ -1,0 +1,33 @@
+#pragma once
+
+#include <CalculationRpn/OperationData.h>
+
+#include <functional>
+
+namespace OperationsForCalculation {
+using namespace Operations;
+using namespace Calculation;
+using namespace std;
+
+class OperationSet {
+ private:
+  shared_ptr<OperationsData> _data = make_shared<OperationsData>();
+  static OperationSet *_instance;
+
+  void fillUnaryOperations();
+  void fillBinaryOperations();
+
+  void addBinaryOperation(const char *lexeme,
+                          function<double(double, double)> op,
+                          Associativity associativity, Priority priority);
+  void addUnaryOperation(const char *lexeme, function<double(double)> op,
+                         Associativity associativity, Priority priority);
+
+  OperationSet();
+
+ public:
+  static OperationSet &getInstance();
+
+  shared_ptr<OperationsData> getData();
+};
+}  // namespace OperationsForCalculation

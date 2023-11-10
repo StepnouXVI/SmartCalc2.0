@@ -1,0 +1,48 @@
+#pragma once
+
+#include <CalculationRpn/OperationData.h>
+#include <CalculationRpn/Operations/IOperation.h>
+
+#include <memory>
+#include <queue>
+#include <string>
+#include <unordered_map>
+
+namespace Preprocessors {
+class LexemeParser {
+ public:
+  using Operation = Operations::IOperation;
+  using OperationDataPtr = std::shared_ptr<Calculation::OperationsData>;
+
+ private:
+  enum SymbolType { digit, letter, operand, bracket, space };
+
+  static constexpr size_t MaxExpressionLength = 256;
+
+  OperationDataPtr _operationData = nullptr;
+
+  std::shared_ptr<std::string> _expression = nullptr;
+  std::shared_ptr<std::queue<std::string>> _result = {};
+
+  std::string::iterator _currentSymbol;
+  SymbolType _lastSymbolType = operand;
+
+ private:
+  bool isLetter(char);
+  bool isDigit(char);
+
+  SymbolType getTypeOfSymbol(char);
+
+  void getLexeme();
+
+  void operatorProcession();
+  void lettersProcession();
+  void digitProcession();
+  void bracketProcession();
+
+ public:
+  LexemeParser(OperationDataPtr data);
+  std::shared_ptr<std::queue<std::string>> Preprocess(
+      std::shared_ptr<std::string> expression);
+};
+}  // namespace Preprocessors
