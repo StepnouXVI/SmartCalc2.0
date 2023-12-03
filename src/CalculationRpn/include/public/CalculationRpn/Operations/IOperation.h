@@ -4,14 +4,16 @@
 
 #include <list>
 
-namespace Operations {
-class IOperation {
- public:
-  virtual Priority GetPriority() const = 0;
-  virtual Associativity GetAssociativity() const = 0;
-  virtual void operator()(std::list<double> &) = 0;
+namespace Operations
+{
+class IOperation
+{
+  public:
+    virtual Priority GetPriority() const = 0;
+    virtual Associativity GetAssociativity() const = 0;
+    virtual void operator()(std::list<double> &) = 0;
 
- protected:
-  virtual ~IOperation() = default;
+  protected:
+    virtual ~IOperation() = default;
 };
-}  // namespace Operations
+} // namespace Operations

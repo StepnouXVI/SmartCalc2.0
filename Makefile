@@ -7,6 +7,8 @@ BUILD_DIR = build
 SOURCE_DIR = src
 LIB_DIR = src
 LIB_NAME = s21_SmartCalc
+CALC_LIB = CalculationRpn
+OPERATIONS_LIB = OperationsForCalculation
 
 PUURPLE = '\033[0;35m'
 YELLOW = \033[1;33m
@@ -30,31 +32,47 @@ all: ${LIB} tests
 
 ${LIB}: assemble
 	@echo
-	@echo ${GREEN}"Saving${NC} ${YELLOW}${LIB}"${GREEN}"...${NC}"
-	@cp ${BUILD_DIR}/${LIB} ./
+	@echo ${GREEN}"Saving${NC} ${YELLOW}${LIB}"${GREEN}" ...${NC}"
 	@echo "${YELLOW}${LIB}"${LIGTH_GREEN}" was saved to "${BLUE}"${CURRENT_DIR}/${LIB}"${LIGTH_GREEN}"$!${NC}"
-	@cp ${LIB_DIR}/include/*.h ./
 	@echo
 
+configure:${BUILD_DIR}
+	@echo
+	@echo ${GREEN}"Configuration ${YELLOW}${LIB}"${GREEN}" ...${NC}"
+	@${CMAKE} -S ${SOURCE_DIR} -B ${BUILD_DIR}
+	@echo ${LIGTH_GREEN}Successfully configured "${YELLOW}${LIB}"${LIGTH_GREEN}"!${NC}"
+	@echo
 
-assemble: ${BUILD_DIR}
+build_lib:
 	@echo
 	@echo ${GREEN}"Building ${YELLOW}${LIB}"${GREEN}"...${NC}"
-	@${CMAKE} -S ${SOURCE_DIR} -B ${BUILD_DIR}
 	@${CMAKE} --build ${BUILD_DIR}
 	@echo ${LIGTH_GREEN}Successfully built "${YELLOW}${LIB}"${LIGTH_GREEN}"!${NC}"
 	@echo
+
+assemble: configure build_lib
+	
 
 
 
 ${BUILD_DIR}:
 	@mkdir -p ${BUILD_DIR}
 
+
+CALCULATION_TESTS = ${BUILD_DIR}/${CALC_LIB}/tests/simple_test
+OPERATIONS_TESTS = ${BUILD_DIR}/${OPERATIONS_LIB}/tests/OperationTests
+
 .PHONY: tests
 tests: ${assemble}
 	@echo
-	@echo ${GREEN}"Testing...${NC}"
-	@./${BUILD_DIR}/tests/simple_test
+	@echo ${GREEN}"Testing ${YELLOW}${CALC_LIB}"${GREEN}" ...${NC}"
+	@./${CALCULATION_TESTS}
+	@echo ${LIGTH_GREEN}End!'${NC}'
+	@echo
+
+	@echo
+	@echo ${GREEN}"Testing ${YELLOW}${OPERATIONS_LIB}"${GREEN}" ...${NC}"
+	@./${OPERATIONS_TESTS}
 	@echo ${LIGTH_GREEN}End!'${NC}'
 	@echo
 

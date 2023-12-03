@@ -12,27 +12,28 @@
 #include <QWidget>
 #include <memory>
 
-namespace Ui {
+namespace Ui
+{
 
 using namespace std;
 
-class MainWindow : public QWidget {
-  Q_OBJECT
+class MainWindow : public QWidget
+{
+    Q_OBJECT
 
- private:
-  shared_ptr<ICalculationController> _CalcController;
-  shared_ptr<IDepositController> _DepositController;
-  shared_ptr<ICreditController> _CreditController;
+  private:
+    shared_ptr<ICalculationController> _CalcController;
+    shared_ptr<IDepositController> _DepositController;
+    shared_ptr<ICreditController> _CreditController;
 
-  QLineEdit *inputString;
-  QTabWidget *tabWidget;
+    QLineEdit *inputString;
+    QTabWidget *tabWidget;
 
-  QLabel *createPlaceHolder(QString name);
-  void createInputLine();
+    QLabel *createPlaceHolder(QString name);
+    void createInputLine();
 
- public:
-  MainWindow(shared_ptr<ICalculationController> calc,
-             shared_ptr<IDepositController> deposit,
-             shared_ptr<ICreditController> credit, QWidget *pwgt = nullptr);
+  public:
+    MainWindow(shared_ptr<ICalculationController> calc, shared_ptr<IDepositController> deposit,
+               shared_ptr<ICreditController> credit, QWidget *pwgt = nullptr);
 };
-}  // namespace Ui
+} // namespace Ui

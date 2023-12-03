@@ -1,21 +1,22 @@
 #pragma once
 #include <CalculationRpn/Operations/IOperation.h>
 
-namespace Operations {
-class NumberOperation : public IOperation {
-  double _n;
+namespace Operations
+{
+class NumberOperation : public IOperation
+{
+    double _n;
 
-  Associativity _associativity;
-  Priority _priority;
+    Associativity _associativity;
+    Priority _priority;
 
- public:
-  void SetNumber(double);
-  Priority GetPriority() const override;
-  Associativity GetAssociativity() const override;
-  NumberOperation(double number);
-  NumberOperation(double number, Priority priority,
-                  Associativity associativity);
-  void operator()(std::list<double> &stack) override;
-  ~NumberOperation();
+  public:
+    void SetNumber(double);
+    Priority GetPriority() const override;
+    Associativity GetAssociativity() const override;
+    NumberOperation(double number);
+    NumberOperation(double number, Priority priority, Associativity associativity);
+    void operator()(std::list<double> &stack) override;
+    ~NumberOperation();
 };
-}  // namespace Operations
+} // namespace Operations

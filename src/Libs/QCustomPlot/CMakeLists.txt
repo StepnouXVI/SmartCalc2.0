@@ -17,10 +17,10 @@ target_include_directories(QCustomPlot
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-find_package(Qt5 COMPONENTS Core REQUIRED)
+find_package(Qt6 COMPONENTS Core REQUIRED)
 target_link_libraries(QCustomPlot
     PUBLIC
-    Qt5::Core)
+    Qt6::Core)
 
 # enable_testing()
 

@@ -1,10 +1,12 @@
 #pragma once
 
-namespace Ui {
+namespace Ui
+{
 using namespace std;
 
-class IDepositController {
- protected:
-  virtual ~IDepositController() = default;
+class IDepositController
+{
+  protected:
+    virtual ~IDepositController() = default;
 };
-}  // namespace Ui
+} // namespace Ui

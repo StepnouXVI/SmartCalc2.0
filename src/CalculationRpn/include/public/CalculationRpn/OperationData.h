@@ -7,17 +7,18 @@
 #include <string>
 #include <unordered_map>
 
-namespace Calculation {
+namespace Calculation
+{
 using namespace std;
 
 using Operation = Operations::IOperation;
-using OperationsHashTable =
-    std::unordered_map<std::string, shared_ptr<Operation>>;
+using OperationsHashTable = std::unordered_map<std::string, shared_ptr<Operation>>;
 using OperationsHashTablePtr = std::shared_ptr<OperationsHashTable>;
 using CharSetPtr = std::shared_ptr<std::set<char>>;
 
-struct OperationsData {
-  OperationsHashTablePtr Operations;
-  CharSetPtr Operators;
+struct OperationsData
+{
+    OperationsHashTablePtr Operations;
+    CharSetPtr Operators;
 };
-}  // namespace Calculation
+} // namespace Calculation

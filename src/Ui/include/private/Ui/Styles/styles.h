@@ -91,14 +91,10 @@ QMenu::indicator {
 })";
 
 const QString ButtonStyles[4][5] = {
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, OperandButtonStyle, NumericButtonStyle,
-     EqualBUttonStyle, OperandButtonStyle}};
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, OperandButtonStyle, NumericButtonStyle, EqualBUttonStyle, OperandButtonStyle}};
 
 const QString TabWidgetStyle = R"(
     QTabWidget::pane{
@@ -135,4 +131,4 @@ const QString InputRangeLineStyle = R"(
       background-color: #1A2030;
     })";
 
-#endif  // STYLES_H
+#endif // STYLES_H
