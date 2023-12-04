@@ -1,10 +1,8 @@
 #pragma once
 #include <QString>
 
-namespace Ui
-{
-namespace Styles
-{
+namespace Ui {
+namespace Styles {
 
 const QString NumericButtonStyle = R"(
 QPushButton {
@@ -39,9 +37,13 @@ QPushButton:pressed { background-color: #41a1d5; }
 )";
 
 const QString ButtonStyles[4][5] = {
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle, NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, OperandButtonStyle, NumericButtonStyle, EqualButtonStyle, OperandButtonStyle}};
-} // namespace Styles
-} // namespace Ui
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
+     NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
+     NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
+     NumericButtonStyle, OperandButtonStyle},
+    {OperandButtonStyle, OperandButtonStyle, NumericButtonStyle,
+     EqualButtonStyle, OperandButtonStyle}};
+}  // namespace Styles
+}  // namespace Ui

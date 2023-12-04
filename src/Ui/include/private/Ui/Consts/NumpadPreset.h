@@ -1,12 +1,12 @@
 #pragma once
 #include <QString>
 
-namespace Ui
-{
-namespace Consts
-{
-const QString ButtonsTemplate[4][5] = {
-    {"(", "7", "8", "9", "/"}, {")", "4", "5", "6", "*"}, {"^", "1", "2", "3", "-"}, {"%", ".", "0", "=", "+"}};
+namespace Ui {
+namespace Consts {
+const QString ButtonsTemplate[4][5] = {{"(", "7", "8", "9", "/"},
+                                       {")", "4", "5", "6", "*"},
+                                       {"^", "1", "2", "3", "-"},
+                                       {"%", ".", "0", "=", "+"}};
 }
 
-} // namespace Ui
+}  // namespace Ui

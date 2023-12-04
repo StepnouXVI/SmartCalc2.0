@@ -12,8 +12,7 @@
 #include <QWidget>
 #include <memory>
 
-namespace Ui
-{
+namespace Ui {
 
 using namespace std;
 
@@ -33,7 +32,9 @@ using namespace std;
 //     void createInputLine();
 
 //   public:
-//     MainWindow(shared_ptr<ICalculationController> calc, shared_ptr<IDepositController> deposit,
-//                shared_ptr<ICreditController> credit, QWidget *pwgt = nullptr);
+//     MainWindow(shared_ptr<ICalculationController> calc,
+//     shared_ptr<IDepositController> deposit,
+//                shared_ptr<ICreditController> credit, QWidget *pwgt =
+//                nullptr);
 // };
-} // namespace Ui
+}  // namespace Ui

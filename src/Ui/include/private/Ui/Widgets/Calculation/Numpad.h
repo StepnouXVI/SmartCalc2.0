@@ -5,12 +5,10 @@
 #include <QWidget>
 #include <memory>
 
-namespace Ui
-{
+namespace Ui {
 using namespace std;
 
-class Numpad : public QWidget
-{
+class Numpad : public QWidget {
   // Q_OBJECT
 };
-} // namespace Ui
+}  // namespace Ui

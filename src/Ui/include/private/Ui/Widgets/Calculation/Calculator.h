@@ -12,11 +12,10 @@
 #include <QWidget>
 #include <memory>
 
-namespace Ui
-{
+namespace Ui {
 
 // class Calculator : public QWidget
 // {
 //   Q_OBJECT
 // };
-} // namespace Ui
+}  // namespace Ui

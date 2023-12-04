@@ -1,10 +1,8 @@
 #pragma once
 #include <QString>
 
-namespace Ui
-{
-namespace Styles
-{
+namespace Ui {
+namespace Styles {
 const QString InputLineStyle = R"(
     QLineEdit {
       color: white;
@@ -21,5 +19,5 @@ const QString OutputLineStyle = R"(
       background-color: #1A2030;
       margin-bottom: 0;
     })";
-} // namespace Styles
-} // namespace Ui
+}  // namespace Styles
+}  // namespace Ui

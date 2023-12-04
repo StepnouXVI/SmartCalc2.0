@@ -3,11 +3,11 @@
 
 #define FUNCTIONS_LITERALS "sqrt", "log", "ln", "abs"
 #define TRIGONOMETRY_LITERALS "cos", "sin", "tan", "atan", "acos", "asin"
-#define BUTTONS_TEMPLATE                                                                                               \
-    {'(', '7', '8', '9', '/'}, {')', '4', '5', '6', '*'}, {'^', '1', '2', '3', '-'},                                   \
-    {                                                                                                                  \
-        '%', '.', '0', '=', '+'                                                                                        \
-    }
+#define BUTTONS_TEMPLATE                                \
+  {'(', '7', '8', '9', '/'}, {')', '4', '5', '6', '*'}, \
+      {'^', '1', '2', '3', '-'}, {                      \
+    '%', '.', '0', '=', '+'                             \
+  }
 
 #define CELL_W 40 * 5
 #define CELL_H 40 * 2
@@ -27,4 +27,4 @@
 
 #define RANGE_INPUT_STRINGS "x min", "x max", "y min", "y max"
 
-#endif // CONSTS_H
+#endif  // CONSTS_H

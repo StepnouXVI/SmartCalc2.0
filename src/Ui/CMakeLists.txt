@@ -22,9 +22,12 @@ find_package(Qt${QT_VERSION_MAJOR}PrintSupport REQUIRED)
 
 
 target_link_libraries(UI
-    PRIVATE PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::PrintSupport
+    PRIVATE PRIVATE 
+    Qt${QT_VERSION_MAJOR}::Widgets 
+    Qt${QT_VERSION_MAJOR}::PrintSupport
+    QCustomPlot
 )
 
-# enable_testing()
+# # enable_testing()
 
-add_subdirectory(tests)
+# add_subdirectory(tests)
