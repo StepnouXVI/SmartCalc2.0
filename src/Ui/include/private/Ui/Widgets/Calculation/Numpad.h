@@ -9,6 +9,10 @@ namespace Ui {
 using namespace std;
 
 class Numpad : public QWidget {
-  // Q_OBJECT
+  Q_OBJECT
+
+ public:
+  Numpad(QWidget *parent = nullptr);
+  ~Numpad();
 };
 }  // namespace Ui

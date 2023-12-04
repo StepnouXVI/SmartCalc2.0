@@ -14,8 +14,10 @@
 
 namespace Ui {
 
-// class Calculator : public QWidget
-// {
-//   Q_OBJECT
-// };
+class Calculator : public QWidget {
+  Q_OBJECT
+ public:
+  Calculator(QWidget *parent = nullptr);
+  ~Calculator();
+};
 }  // namespace Ui

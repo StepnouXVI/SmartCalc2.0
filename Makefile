@@ -6,7 +6,7 @@ CMAKE = cmake
 BUILD_DIR = build
 SOURCE_DIR = src
 LIB_DIR = src
-LIB_NAME = s21_SmartCalc
+LIB_NAME = SmartCalc
 CALC_LIB = CalculationRpn
 OPERATIONS_LIB = OperationsForCalculation
 
@@ -21,42 +21,45 @@ NC=\033[0m
 CODE_STYLE = google
 UNAME := $(shell uname)
 
-ifeq (UNAME, Darwin)
-	LIB = ${LIB_NAME}.a
-else
-	LIB = lib${LIB_NAME}.a
-endif
-
-all: ${LIB} tests
+APP = SmartCalc
 
 
-${LIB}: assemble
+
+all: ${APP} tests
+
+
+
+${APP}: assemble
 	@echo
-	@echo ${GREEN}"Saving${NC} ${YELLOW}${LIB}"${GREEN}" ...${NC}"
-	@echo "${YELLOW}${LIB}"${LIGTH_GREEN}" was saved to "${BLUE}"${CURRENT_DIR}/${LIB}"${LIGTH_GREEN}"$!${NC}"
+	@echo ${GREEN}"Saving${NC} ${YELLOW}${APP}"${GREEN}" ...${NC}"
+	@echo "${YELLOW}${APP}"${LIGTH_GREEN}" was saved to "${BLUE}"${CURRENT_DIR}/${BUILD_DIR}/${APP}/${APP}"${LIGTH_GREEN}"$!${NC}"
 	@echo
 
 configure:${BUILD_DIR}
 	@echo
-	@echo ${GREEN}"Configuration ${YELLOW}${LIB}"${GREEN}" ...${NC}"
+	@echo ${GREEN}"Configuration ${YELLOW}${APP}"${GREEN}" ...${NC}"
 	@${CMAKE} -S ${SOURCE_DIR} -B ${BUILD_DIR}
-	@echo ${LIGTH_GREEN}Successfully configured "${YELLOW}${LIB}"${LIGTH_GREEN}"!${NC}"
+	@echo ${LIGTH_GREEN}Successfully configured "${YELLOW}${APP}"${LIGTH_GREEN}"!${NC}"
 	@echo
 
 build_lib:
 	@echo
-	@echo ${GREEN}"Building ${YELLOW}${LIB}"${GREEN}"...${NC}"
+	@echo ${GREEN}"Building ${YELLOW}${APP}"${GREEN}"...${NC}"
 	@${CMAKE} --build ${BUILD_DIR}
-	@echo ${LIGTH_GREEN}Successfully built "${YELLOW}${LIB}"${LIGTH_GREEN}"!${NC}"
+	@echo ${LIGTH_GREEN}Successfully built "${YELLOW}${APP}"${LIGTH_GREEN}"!${NC}"
 	@echo
 
 assemble: configure build_lib
-	
+
+run:
+	@./${BUILD_DIR}/${APP}/${APP}
 
 
 
 ${BUILD_DIR}:
 	@mkdir -p ${BUILD_DIR}
+
+
 
 
 CALCULATION_TESTS = ${BUILD_DIR}/${CALC_LIB}/tests/simple_test

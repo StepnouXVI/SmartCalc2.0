@@ -3,6 +3,9 @@
 
 #include <QString>
 
+namespace Ui {
+namespace Styles {
+
 const QString NumericButtonStyle = R"(
 QPushButton { 
     border: none;
@@ -134,5 +137,7 @@ const QString InputRangeLineStyle = R"(
       border: 1px solid #373b49;
       background-color: #1A2030;
     })";
+}  // namespace Styles
+}  // namespace Ui
 
 #endif  // STYLES_H
