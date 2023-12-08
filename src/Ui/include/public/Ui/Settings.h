@@ -3,8 +3,8 @@
 namespace Ui {
 class Settings {
   struct Cell {
-    int W;
-    int H;
+    int W = 0;
+    int H = 0;
   };
 
  private:

@@ -1,5 +1,8 @@
 #pragma once
+#include <Ui/Controllers/ICalculationController.h>
+
 #include <QGridLayout>
+#include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QWidget>
@@ -9,10 +12,21 @@ namespace Ui {
 using namespace std;
 
 class Numpad : public QWidget {
-  Q_OBJECT
+ private:
+  QLineEdit *_inputString = nullptr;
+  QLabel *_outputString = nullptr;
+  ICalculationControllerPtr _CalcController = nullptr;
+
+  QLabel *createOutPutLine();
+  QPushButton *createButton(const QString &name, int w, int h, QString style);
+  QGridLayout *createNumpad();
 
  public:
-  Numpad(QWidget *parent = nullptr);
-  ~Numpad();
+  Numpad(ICalculationControllerPtr calcController, QLineEdit *inputString,
+         QLabel *outputString, QWidget *parent = nullptr);
+  virtual ~Numpad();
+
+ public slots:
+  void ButtonClicked();
 };
 }  // namespace Ui

@@ -34,7 +34,8 @@ target_link_libraries(SmartCalc PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
     CalculationRpn
     OperationForCalculation
-    UI)
+    UI
+    Controllers)
 
 set_target_properties(SmartCalc PROPERTIES
     LINKER_LANGUAGE CXX

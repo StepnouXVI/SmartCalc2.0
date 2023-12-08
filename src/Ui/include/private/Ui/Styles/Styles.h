@@ -5,28 +5,6 @@
 
 namespace Ui {
 namespace Styles {
-
-const QString NumericButtonStyle = R"(
-QPushButton { 
-    border: none;
-    border-radius: 5;
-    background-color: #373b49;
-    color: white;
-}
-QPushButton:hover { background-color: #2d3146; }
-QPushButton:pressed { background-color: #232737; }
-)";
-
-const QString OperandButtonStyle = R"(
-QPushButton { 
-    border: none;
-    border-radius: 5;
-    background-color: #2d3146;
-    color: white;
-}
-QPushButton:hover { background-color: #373b49; }
-QPushButton:pressed { background-color: #2d3146; }
-)";
 const QString EqualBUttonStyle = R"(
 QPushButton { 
     border: none;
@@ -47,6 +25,33 @@ QPushButton {
 }
 QPushButton:hover { background-color: #2d3146; }
 QPushButton:pressed { background-color: #373b49; }
+)";
+
+const QString ScrollAreaStyle = R"(
+QScrollArea {
+    background-color: #2d3146;
+}
+
+QScrollArea QWidget {
+    background-color: transparent;
+}
+)";
+
+const QString ButtonStyle = R"(
+QPushButton {
+    color: white;
+    background-color: #373b49;
+    border: none;
+    padding: 5px 10px;
+}
+
+QPushButton:hover {
+    background-color: #2d3146;
+}
+
+QPushButton:pressed {
+    background-color: #1e2133;
+}
 )";
 
 const QString FunctionMenuStyle = R"(
@@ -92,16 +97,6 @@ QMenu::indicator {
     width: 13px;
     height: 13px;
 })";
-
-const QString ButtonStyles[4][5] = {
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, NumericButtonStyle, NumericButtonStyle,
-     NumericButtonStyle, OperandButtonStyle},
-    {OperandButtonStyle, OperandButtonStyle, NumericButtonStyle,
-     EqualBUttonStyle, OperandButtonStyle}};
 
 const QString TabWidgetStyle = R"(
     QTabWidget::pane{
