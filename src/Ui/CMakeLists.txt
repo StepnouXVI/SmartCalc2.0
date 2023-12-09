@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
 file(GLOB_RECURSE LIB_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
 add_library(UI STATIC ${LIB_SOURCES})

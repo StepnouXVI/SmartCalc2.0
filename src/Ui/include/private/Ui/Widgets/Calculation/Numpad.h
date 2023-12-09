@@ -12,6 +12,8 @@ namespace Ui {
 using namespace std;
 
 class Numpad : public QWidget {
+  Q_OBJECT
+
  private:
   QLineEdit *_inputString = nullptr;
   QLabel *_outputString = nullptr;

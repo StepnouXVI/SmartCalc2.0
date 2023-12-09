@@ -7,14 +7,17 @@
 #include <string>
 namespace Ui {
 class FunctionMenu : public QScrollArea {
- private:
-  QLineEdit* _inputString = nullptr;
+  Q_OBJECT
 
-  QPushButton* createFucntionButton(const std::string& name);
+ private:
+  QLineEdit *_inputString = nullptr;
+
+  QPushButton *createFucntionButton(const std::string &name);
 
  public:
-  FunctionMenu(QLineEdit* inputString, const std::set<std::string>& functions,
-               QWidget* parent = nullptr);
+  FunctionMenu(QLineEdit *inputString, const std::set<std::string> &functions,
+               QWidget *parent = nullptr);
+  virtual ~FunctionMenu();
 
  public slots:
   void ButtonClicked();

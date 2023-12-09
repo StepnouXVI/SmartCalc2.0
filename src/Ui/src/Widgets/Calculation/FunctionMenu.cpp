@@ -14,6 +14,7 @@ void FunctionMenu::ButtonClicked() {
 
 QPushButton *FunctionMenu::createFucntionButton(const std::string &name) {
   auto but = new QPushButton(QString::fromStdString(name), this);
+  but->setMinimumHeight(Settings::Instance().CellSetting().H);
   but->setStyleSheet(Styles::FunctionsMenuButtonStyle);
   connect(but, SIGNAL(clicked()), this, SLOT(ButtonClicked()));
   return but;
@@ -37,3 +38,5 @@ FunctionMenu::FunctionMenu(QLineEdit *inputString,
   central->setLayout(layout);
   setWidget(central);
 }
+
+Ui::FunctionMenu::~FunctionMenu() {}

@@ -15,7 +15,11 @@ Calculator::Calculator(ICalculationControllerPtr calcController,
   _inputString = inputString;
   auto layout = new QGridLayout(this);
   _outputString = createOutputString();
+  _outputString->setMinimumSize(6 * Settings::Instance().CellSetting().W,
+                                2 * Settings::Instance().CellSetting().H);
   layout->addWidget(_outputString, 0, 4, 2, 6);
+  functionsMenu->setMinimumSize(4 * Settings::Instance().CellSetting().W,
+                                10 * Settings::Instance().CellSetting().H);
   layout->addWidget(functionsMenu, 0, 0, 10, 4);
   layout->addWidget(
       new Numpad(calcController, _inputString, _outputString, this), 3, 4, 8,
@@ -24,10 +28,14 @@ Calculator::Calculator(ICalculationControllerPtr calcController,
   auto CE = new QPushButton("CE", this);
   CE->setStyleSheet(Styles::EqualBUttonStyle);
   connect(CE, SIGNAL(clicked()), this, SLOT(CEClicked()));
+  CE->setMinimumSize(4 * Settings::Instance().CellSetting().W,
+                     2 * Settings::Instance().CellSetting().H);
   layout->addWidget(CE, 0, 10, 2, 4);
 
   setLayout(layout);
 }
+
+Ui::Calculator::~Calculator() {}
 
 QLabel *Ui::Calculator::createOutputString() {
   auto string = new QLabel("", this);

@@ -2,7 +2,6 @@
 
 #include <Ui/Controllers/ICalculationController.h>
 
-#include <QDialog>
 #include <QGridLayout>
 #include <QLabel>
 #include <QLineEdit>
@@ -16,16 +15,18 @@
 namespace Ui {
 
 class Calculation : public QWidget {
+  Q_OBJECT
+
  private:
   shared_ptr<ICalculationController> _calcController = nullptr;
 
-  QLineEdit* _inputString = nullptr;
+  QLineEdit *_inputString = nullptr;
 
-  QLineEdit* createInputLine();
+  QLineEdit *createInputLine();
 
  public:
   Calculation(ICalculationControllerPtr calcController,
-              std::set<std::string>& functions, QWidget* parent = nullptr);
-  ~Calculation();
+              std::set<std::string> &functions, QWidget *parent = nullptr);
+  virtual ~Calculation();
 };
 }  // namespace Ui

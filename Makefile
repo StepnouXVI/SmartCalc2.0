@@ -25,7 +25,9 @@ APP = SmartCalc
 
 
 
-all: ${APP} tests
+all: ${APP} tests run
+
+rebuild: clean all
 
 
 
