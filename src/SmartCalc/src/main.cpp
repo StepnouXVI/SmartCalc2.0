@@ -9,8 +9,8 @@
 using namespace Ui;
 
 int main(int argc, char *argv[]) {
-  Settings::Instance().CellSetting().W = 120;
-  Settings::Instance().CellSetting().H = 80;
+  Settings::Instance().CellSetting().W = 60;
+  Settings::Instance().CellSetting().H = 50;
 
   auto calcController = make_shared<Controllers::CalculationController>(
       make_shared<Equations::EquationFactory>(

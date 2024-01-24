@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-set(CMAKE_TOOLCHAIN_FILE /home/stm/tools/vcpkg/scripts/buildsystems/vcpkg.cmake CACHE STRING "Vcpkg toolchain file")
+set(CMAKE_PREFIX_PATH $ENV{QTDIR})
 project(SmartCalc VERSION 2.0)
 
 enable_testing()

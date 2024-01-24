@@ -7,14 +7,13 @@
 #include <QTabWidget>
 #include <QWidget>
 #include <map>
-#include <memory>
 
 namespace Ui {
 
 using namespace std;
 
 class MainWindow : public QWidget {
-  // Q_OBJECT
+  Q_OBJECT
 
  private:
   QTabWidget *_tabWidget = nullptr;

@@ -45,7 +45,7 @@ QLabel *Ui::Calculator::createOutputString() {
 
   auto font = string->font();
   font.setBold(true);
-  font.setPixelSize(Settings::Instance().CellSetting().H);
+  font.setPixelSize(Settings::Instance().CellSetting().H/2);
   font.setItalic(true);
   string->setFont(font);
 

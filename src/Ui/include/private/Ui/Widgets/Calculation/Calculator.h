@@ -6,12 +6,10 @@
 #include <QPushButton>
 #include <QWidget>
 #include <memory>
-#include <set>
 
 namespace Ui {
 using namespace std;
 class Calculator : public QWidget {
-  Q_OBJECT
  private:
   shared_ptr<ICalculationController> _calcController = nullptr;
   QLineEdit *_inputString = nullptr;

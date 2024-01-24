@@ -7,7 +7,6 @@
 #include <string>
 namespace Ui {
 class FunctionMenu : public QScrollArea {
-  Q_OBJECT
 
  private:
   QLineEdit *_inputString = nullptr;

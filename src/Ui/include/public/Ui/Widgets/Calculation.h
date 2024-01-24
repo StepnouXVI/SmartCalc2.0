@@ -15,7 +15,6 @@
 namespace Ui {
 
 class Calculation : public QWidget {
-  Q_OBJECT
 
  private:
   shared_ptr<ICalculationController> _calcController = nullptr;

@@ -12,7 +12,7 @@ double Controllers::CalculationController::Execute(
   if (equation) {
     return equation->Execute();
   }
-  return 0.0 / 0.0;
+  return -1;
 }
 
 double Controllers::CalculationController::Execute(
@@ -22,7 +22,7 @@ double Controllers::CalculationController::Execute(
   if (equation) {
     return equation->Execute(x);
   }
-  return 0.0 / 0.0;
+  return -1;
 }
 
 std::shared_ptr<std::vector<double>>
