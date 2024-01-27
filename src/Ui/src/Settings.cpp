@@ -1,4 +1,4 @@
-#include <Ui/Settings.h>
+#include<Ui/Settings>
 
 namespace Ui
 {

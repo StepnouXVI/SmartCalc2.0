@@ -1,0 +1,16 @@
+#pragma once
+#include <Credit/Info>
+
+namespace Credit
+{
+   class CreditComputation
+   {
+   private:
+      static CreditComputeInfo ComputeAnnuity(CreditInfo &info);
+      static CreditComputeInfo ComputeDiff(CreditInfo info);
+      static Money ComputeDiffPayment(Money remainder, Percent interestRate, Month term);
+
+   public:
+      static CreditComputeInfo Compute(CreditInfo &info);
+   };
+}

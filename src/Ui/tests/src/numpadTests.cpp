@@ -1,4 +1,4 @@
-#include <Ui/Widgets/Calculation/Numpad.h>
+#include<Ui/Widgets/Calculation/Numpad>
 
 using namespace Ui;
 #include <QApplication>

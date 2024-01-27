@@ -1,13 +1,14 @@
 cmake_minimum_required(VERSION 3.12)
+
 set(namespace "SmartCalc")
-project("Credit"
+project("CalculationOperations"
     VERSION 0.1.1
-    DESCRIPTION "Lib for calculation deposit"
+    DESCRIPTION "This lib contains Operations data for Calculation"
 )
 
-file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
+file(GLOB_RECURSE LIB_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
-add_library(${PROJECT_NAME} STATIC ${SOURCES})
+add_library(${PROJECT_NAME} STATIC ${LIB_SOURCES})
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
@@ -19,6 +20,11 @@ target_include_directories(${PROJECT_NAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/public>
         # где внешние проекты будут искать публичные заголовки библиотеки
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+
+target_link_libraries(${PROJECT_NAME}
+    PUBLIC
+    Calculation
 )
 
 enable_testing()

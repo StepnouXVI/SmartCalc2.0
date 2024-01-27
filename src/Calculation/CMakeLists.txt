@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 set(namespace "SmartCalc")
-project("Credit"
+project("Calculation"
     VERSION 0.1.1
-    DESCRIPTION "Lib for calculation deposit"
+    DESCRIPTION "Lib for calculation with right polish notation"
 )
 
 file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")

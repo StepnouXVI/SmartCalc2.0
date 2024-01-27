@@ -1,8 +1,8 @@
-#include <Ui/Consts/Consts.h>
-#include <Ui/Settings.h>
-#include <Ui/Styles/CalculatorStyles.h>
-#include <Ui/Widgets/Calculation/Calculator.h>
-#include <Ui/Widgets/Calculation/Numpad.h>
+#include<Ui/Consts/Consts>
+#include<Ui/Settings>
+#include<Ui/Styles/CalculatorStyles>
+#include<Ui/Widgets/Calculation/Calculator>
+#include<Ui/Widgets/Calculation/Numpad>
 
 #include <QLabel>
 #include <QLineEdit>

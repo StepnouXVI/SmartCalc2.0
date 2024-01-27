@@ -1,0 +1,39 @@
+#pragma once
+#include <cstdint>
+
+namespace Credit
+{
+    /**
+     * @typedef Money
+     * @brief Represents a monetary value using an unsigned integer type.
+     */
+    using Money = std::size_t;
+
+    /**
+     * @enum Type
+     * @brief Represents the type of payment schedule for a loan.
+     *
+     * @var Type::Annuity
+     * Annuity payment type where the borrower pays the same amount each period.
+     *
+     * @var Type::Diff
+     * Differentiated payment type where the payment varies each period.
+     */
+    enum Type
+    {
+        Annuity = 0,
+        Diff = 1
+    };
+
+    /**
+     * @typedef Percent
+     * @brief Represents a percentage value as a floating-point number.
+     */
+    using Percent = double;
+
+    /**
+     * @typedef Term
+     * @brief Represents the term length (duration) of a loan using an unsigned integer type.
+     */
+    using Month = std::size_t;
+}

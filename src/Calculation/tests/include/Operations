@@ -1,0 +1,58 @@
+#include<Calculation/Operations/BinaryOperation>
+#include<Calculation/Operations/NumberOperation>
+#include<Calculation/Operations/UnaryOperation>
+#include<gtest/gtest.h>
+
+using namespace Operations;
+
+double binaryFunction(double a, double b)
+{
+    return a + b;
+}
+
+double unaryFunction(double a)
+{
+    return a + 1;
+}
+
+TEST(Operations, BinaryOperation)
+{
+    BinaryOperation binOp(binaryFunction, Associativity::Left, Priority::Low);
+    std::list<double> stack = {};
+
+    ASSERT_THROW(binOp(stack), std::runtime_error);
+
+    stack.push_back(1);
+    stack.push_back(2);
+
+    binOp(stack);
+    ASSERT_EQ(stack.front(), 3);
+    ASSERT_EQ(stack.size(), 1);
+    ASSERT_EQ(binOp.GetPriority(), Priority::Low);
+    ASSERT_EQ(binOp.GetAssociativity(), Associativity::Left);
+}
+
+TEST(Operations, UnaryOperation)
+{
+    UnaryOperation unOp(unaryFunction, Priority::Low, Associativity::Left);
+    std::list<double> stack;
+    ASSERT_THROW(unOp(stack), std::runtime_error);
+
+    stack.push_back(1);
+
+    unOp(stack);
+    ASSERT_EQ(stack.front(), 2);
+    ASSERT_EQ(stack.size(), 1);
+    ASSERT_EQ(unOp.GetPriority(), Priority::Low);
+    ASSERT_EQ(unOp.GetAssociativity(), Associativity::Left);
+}
+
+TEST(Operations, NumberOperation)
+{
+    NumberOperation numOp(1);
+    std::list<double> stack = {};
+
+    numOp(stack);
+    ASSERT_EQ(stack.front(), 1);
+    ASSERT_EQ(stack.size(), 1);
+}

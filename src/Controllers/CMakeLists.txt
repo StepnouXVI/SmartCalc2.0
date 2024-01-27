@@ -3,9 +3,9 @@
 
 # file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "src/*.cpp")
 
-# add_library(CalculationRpn STATIC ${SOURCES})
+# add_library(Calculation STATIC ${SOURCES})
 
-# target_include_directories(CalculationRpn
+# target_include_directories(Calculation
 #     PRIVATE
 #          # Список директорий, в который библиотека будет искать свои внутренние заголовки
 #         ${CMAKE_CURRENT_SOURCE_DIR}/include/private

@@ -1,0 +1,17 @@
+#pragma once
+
+#include <Calculation/OperationData>
+#include <Calculation/Operations/IOperation>
+namespace Equations
+{
+class Equation
+{
+  private:
+    std::shared_ptr<std::list<std::shared_ptr<Operations::IOperation>>> _operations;
+
+  public:
+    Equation(std::shared_ptr<std::list<std::shared_ptr<Operations::IOperation>>>);
+    double Execute();
+    double operator()();
+};
+} // namespace Equations

@@ -7,6 +7,6 @@
 
 
 # add_executable(simple_test ${TEST_SOURCE})
-# target_link_libraries(simple_test CalculationRpn GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+# target_link_libraries(simple_test Calculation GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
 
 # add_test(NAME SimpleTest COMMAND simple_test)

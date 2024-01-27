@@ -1,0 +1,28 @@
+#pragma once
+#include <Credit/Types>
+
+namespace Credit
+{
+    struct CreditInfo
+    {
+        Percent InterestRate = 0;
+        Month Term = 0;
+        Money TotalAmount = 0;
+        Credit::Type Type = Type::Annuity;
+
+        CreditInfo(Percent interestRate, Month term, Money totalAmount, Credit::Type type);
+        CreditInfo() = default;
+    };
+
+    struct CreditComputeInfo
+    {
+    public:
+        Money MonthlyPayment = 0;
+        Money TotalOverpayment = 0;
+        Money TotalPayment = 0;
+
+        CreditComputeInfo(Money monthlyPayment, Money totalOverpayment, Money totalPayment);
+        CreditComputeInfo() = default;
+    };
+
+} // namespace credit

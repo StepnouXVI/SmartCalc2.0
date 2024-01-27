@@ -1,8 +1,8 @@
-#include <Ui/Consts/Consts.h>
-#include <Ui/Consts/NumpadPreset.h>
-#include <Ui/Settings.h>
-#include <Ui/Styles/NumpadStyles.h>
-#include <Ui/Widgets/Calculation/Numpad.h>
+#include<Ui/Consts/Consts>
+#include<Ui/Consts/NumpadPreset>
+#include<Ui/Settings>
+#include<Ui/Styles/NumpadStyles>
+#include<Ui/Widgets/Calculation/Numpad>
 
 namespace Ui
 {

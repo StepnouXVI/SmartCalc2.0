@@ -1,0 +1,32 @@
+#pragma once
+
+#include <gtest/gtest.h>
+
+#include <Credit/Credit>
+using namespace Credit;
+
+#define ASYMMETRY(X, Y) std::abs((long double)X - (long double)Y) / ((long double)X + (long double)Y)
+
+
+TEST(Success, Annuity)
+{
+    CreditInfo info(12, 36, 20000, Type::Annuity);
+    auto result = CreditComputation::Compute(info);
+    ASSERT_EQ(result.MonthlyPayment, 664);
+    ASSERT_EQ(result.TotalOverpayment, 664*36-20000);
+    ASSERT_EQ(result.TotalPayment, 664*36);
+}
+
+TEST(Success, Differentiated)
+{
+    CreditInfo info(15, 12, 120000, Type::Diff);
+    auto result = CreditComputation::Compute(info);
+    ASSERT_LE(ASYMMETRY(result.TotalPayment, 129705), 0.005);
+    ASSERT_LE(ASYMMETRY(result.TotalOverpayment, 9705), 0.005);
+}
+
+TEST(Failure, IncorrectType)
+{
+    CreditInfo info(15, 12, 120000, (Type)2);
+    ASSERT_THROW(CreditComputation::Compute(info), std::runtime_error);
+}
