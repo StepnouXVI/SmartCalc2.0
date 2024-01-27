@@ -1,13 +1,13 @@
 #pragma once
 
-#include <CalculationRpn/Equation/Equation.h>
-#include <CalculationRpn/Equation/EquationX.h>
+#include <CalculationRpn/Equation/Equation>
+#include <CalculationRpn/Equation/EquationX>
 #include <CalculationRpn/OperationData.h>
 
 #include <queue>
 #include <stack>
 
-namespace Preprocessors
+namespace Preprocessor
 {
 class LexemeParser;
 }
@@ -35,7 +35,7 @@ class EquationFactory
     };
 
   private:
-    shared_ptr<Preprocessors::LexemeParser> _parser;
+    shared_ptr<Preprocessor::LexemeParser> _parser;
     shared_ptr<OperationsData> _data;
 
     OperationsListPtr _resultList;

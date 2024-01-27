@@ -1,9 +1,9 @@
-#include <CalculationRpn/LexemeParser/LexemeParser.h>
+#include <CalculationRpn/LexemeParser>
 
 #include <stdexcept>
-using namespace Preprocessors;
+using namespace Preprocessor;
 
-Preprocessors::LexemeParser::LexemeParser(OperationDataPtr data)
+Preprocessor::LexemeParser::LexemeParser(OperationDataPtr data)
 {
     _operationData = data;
 }
@@ -50,16 +50,16 @@ void LexemeParser::getLexeme()
     _lastSymbolType = type;
 }
 
-bool Preprocessors::LexemeParser::isLetter(char symbol)
+bool Preprocessor::LexemeParser::isLetter(char symbol)
 {
     return symbol >= 'a' && symbol <= 'z';
 }
-bool Preprocessors::LexemeParser::isDigit(char symbol)
+bool Preprocessor::LexemeParser::isDigit(char symbol)
 {
     return symbol >= '0' && symbol <= '9';
 }
 
-LexemeParser::SymbolType Preprocessors::LexemeParser::getTypeOfSymbol(char symbol)
+LexemeParser::SymbolType Preprocessor::LexemeParser::getTypeOfSymbol(char symbol)
 {
     if (symbol == ' ')
         return space;
@@ -79,7 +79,7 @@ LexemeParser::SymbolType Preprocessors::LexemeParser::getTypeOfSymbol(char symbo
     throw std::runtime_error("Unknown symbol in equation.");
 }
 
-void Preprocessors::LexemeParser::operatorProcession()
+void Preprocessor::LexemeParser::operatorProcession()
 {
     if (_lastSymbolType == operand)
     {
@@ -97,7 +97,7 @@ void Preprocessors::LexemeParser::operatorProcession()
     _currentSymbol++;
 }
 
-void Preprocessors::LexemeParser::lettersProcession()
+void Preprocessor::LexemeParser::lettersProcession()
 {
     auto start = _currentSymbol;
 
@@ -107,7 +107,7 @@ void Preprocessors::LexemeParser::lettersProcession()
     _result->push(std::string(start, _currentSymbol));
 }
 
-void Preprocessors::LexemeParser::digitProcession()
+void Preprocessor::LexemeParser::digitProcession()
 {
     auto start = _currentSymbol;
     int dotAmount = 0;

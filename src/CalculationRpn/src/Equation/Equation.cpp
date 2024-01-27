@@ -1,4 +1,4 @@
-#include <CalculationRpn/Equation/Equation.h>
+#include <CalculationRpn/Equation/Equation>
 
 #include <stdexcept>
 

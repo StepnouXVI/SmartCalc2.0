@@ -1,11 +1,11 @@
-#include <CalculationRpn/Equation/EquationFactory.h>
-#include <CalculationRpn/LexemeParser/LexemeParser.h>
+#include <CalculationRpn/Equation/EquationFactory>
+#include <CalculationRpn/LexemeParser>
 #include <CalculationRpn/Operations/NumberOperation.h>
 
 #include <stdexcept>
 namespace Equations
 {
-using namespace Preprocessors;
+using namespace Preprocessor;
 
 EquationFactory::EquationFactory(shared_ptr<OperationsData> data)
 {

@@ -1,10 +1,16 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(namespace "SmartCalc")
+project("OperationsForCalculation"
+    VERSION 0.1.1
+    DESCRIPTION "This lib contains Operations data for Calculation"
+)
+
 file(GLOB_RECURSE LIB_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "src/*.cpp")
 
-add_library(OperationForCalculation STATIC ${LIB_SOURCES})
+add_library(${PROJECT_NAME} STATIC ${LIB_SOURCES})
 
-target_include_directories(OperationForCalculation
+target_include_directories(${PROJECT_NAME}
     PRIVATE
          # Список директорий, в который библиотека будет искать свои внутренние заголовки
         ${CMAKE_CURRENT_SOURCE_DIR}/include/private
@@ -16,7 +22,7 @@ target_include_directories(OperationForCalculation
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-target_link_libraries(OperationForCalculation
+target_link_libraries(${PROJECT_NAME}
     PUBLIC
     CalculationRpn
 )

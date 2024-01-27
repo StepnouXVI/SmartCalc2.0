@@ -1,5 +1,5 @@
-#include <CalculationRpn/Equation/Equation.h>
-#include <CalculationRpn/Equation/EquationX.h>
+#include <CalculationRpn/Equation/Equation>
+#include <CalculationRpn/Equation/EquationX>
 #include <CalculationRpn/Operations/BinaryOperation.h>
 #include <CalculationRpn/Operations/NumberOperation.h>
 #include <CalculationRpn/Operations/UnaryOperation.h>

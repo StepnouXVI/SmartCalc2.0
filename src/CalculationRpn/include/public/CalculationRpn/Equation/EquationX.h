@@ -1,6 +1,6 @@
 #pragma once
 
-#include <CalculationRpn/Equation/Equation.h>
+#include <CalculationRpn/Equation/Equation>
 #include <CalculationRpn/OperationData.h>
 #include <CalculationRpn/Operations/IOperation.h>
 #include <CalculationRpn/Operations/NumberOperation.h>

@@ -8,7 +8,7 @@
 #include <string>
 #include <unordered_map>
 
-namespace Preprocessors
+namespace Preprocessor
 {
 class LexemeParser
 {
@@ -53,4 +53,4 @@ class LexemeParser
     LexemeParser(OperationDataPtr data);
     std::shared_ptr<std::queue<std::string>> Preprocess(std::shared_ptr<std::string> expression);
 };
-} // namespace Preprocessors
+} // namespace Preprocessor

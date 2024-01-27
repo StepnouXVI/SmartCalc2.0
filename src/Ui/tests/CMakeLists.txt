@@ -2,7 +2,7 @@ project(ui_tests)
 
 set(TEST_SOURCE src/numpadTests.cpp)
 
-find_package(GTest CONFIG REQUIRED)
+# find_package(GTest CONFIG REQUIRED)
 include_directories(include ../include/private ../include/public)
 
 

@@ -1,4 +1,4 @@
-#include <CalculationRpn/Equation/EquationX.h>
+#include <CalculationRpn/Equation/EquationX>
 
 namespace Equations
 {

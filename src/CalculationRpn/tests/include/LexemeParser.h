@@ -1,8 +1,8 @@
-#include <CalculationRpn/LexemeParser/LexemeParser.h>
+#include <CalculationRpn/LexemeParser>
 #include <CalculationRpn/Operations/NumberOperation.h>
 #include <gtest/gtest.h>
 
-using namespace Preprocessors;
+using namespace Preprocessor;
 using namespace std;
 
 class LexemeParserTest : public ::testing::Test
