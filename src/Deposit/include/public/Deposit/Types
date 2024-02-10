@@ -1,1 +1,11 @@
 #pragma once
+
+#include <cstdint>
+
+namespace Deposit
+{
+    using Money = std::size_t;
+    using Percent = double;
+    using Month = std::size_t;
+    using Day = std::size_t;
+}

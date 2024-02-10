@@ -1,10 +1,72 @@
 #pragma once
 
-namespace credit
-{
-    struct CreditInfo
-    {
+#include <Deposit/Types>
+#include <vector>
 
-        
+namespace Deposit
+{
+    /**
+     * @struct DepositInfo
+     * @brief Holds the initial configuration for a deposit.
+     *
+     * @var Money InitialAmount
+     * The initial amount of money deposited.
+     *
+     * @var Day TotalDuration
+     * The total duration of the deposit in days.
+     *
+     * @var Percent InterestRate
+     * The annual interest rate of the deposit as a percentage.
+     *
+     * @var bool Capitalization
+     * Indicates whether the interest is capitalized or not.
+     *
+     * @var Day PeriodOfPayment
+     * The frequency of payments in days.
+     */
+    struct DepositInfo
+    {
+        Money InitialAmount;
+        Day Term;
+        Percent InterestRate;
+        bool Capitalization;
+        Percent TaxRate;
+        Day PeriodOfPayment;
+    };
+
+    /**
+     * @struct Payment
+     * @brief Represents a single payment transaction.
+     *
+     * @var Money Amount
+     * The amount of money in the payment.
+     *
+     * @var Day DayOfPayment
+     * The day the payment is made.
+     */
+    struct Payment
+    {
+        Money Amount;
+        Day DayOfPayment;
+    };
+
+    /**
+     * @struct EndStatistic
+     * @brief Represents the final statistics of a deposit.
+     *
+     * @var Money Amount
+     * The final amount after all transactions and interest calculations.
+     *
+     * @var Money AccruedInterest
+     * The total interest accrued over the deposit period.
+     *
+     * @var Money TotalTax
+     * The total tax deducted from the interest.
+     */
+    struct EndStatistic
+    {
+        Money Amount;
+        Money AccruedInterest;
+        Money TotalTax;
     };
 }

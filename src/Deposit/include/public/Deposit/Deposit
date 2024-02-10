@@ -1,0 +1,64 @@
+#pragma once
+
+#include <Deposit/Info>
+#include <queue>
+
+namespace Deposit
+{
+    /**
+     * @class Deposit
+     * @brief Manages a deposit account, tracking payments and interest.
+     *
+     * Private Members:
+     * @param DepositInfo _currentState
+     * The current state of the deposit including initial configuration.
+     *
+     * @param std::queue<Payment> _inputPayments
+     * A list of incoming payments to the deposit.
+     *
+     * @param std::queue<Payment> _outputPayments
+     * A list of outgoing payments from the deposit.
+     *
+     * Constructor:
+     * @fn Deposit::Deposit(const DepositInfo &info)
+     * @brief Constructs a Deposit object with the given initial deposit information.
+     *
+     * @param info
+     * The initial deposit configuration.
+     *
+     * @fn Deposit::Deposit(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments)
+     * @brief Constructs a Deposit object with initial deposit info and lists of input and output payments.
+     *
+     * @param info
+     * The initial deposit configuration.
+     *
+     * @param inputPayments
+     * Initial list of incoming payments.
+     *
+     * @param outputPayments
+     * Initial list of outgoing payments.
+     *
+     * Public Methods:
+     * @fn EndStatistic Deposit::ComputeEndStatistic() const
+     * @brief Computes the end statistics of the deposit based on the current state and transactions.
+     * @return EndStatistic
+     * The final statistics of the deposit including the final amount, accrued interest, and total tax.
+     */
+    class Deposit
+    {
+    private:
+        DepositInfo _currentState;
+        std::queue<Payment> _inputPayments = {};
+        std::queue<Payment> _outputPayments = {};
+
+    public:
+        // Constructs a Deposit object with the given initial deposit information.
+        Deposit(const DepositInfo &info);
+
+        // Constructs a Deposit object with initial deposit info and lists of input and output payments.
+        Deposit(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments);
+
+        // Computes the end statistics of the deposit based on the current state and transactions.
+        EndStatistic ComputeEndStatistic();
+    };
+}

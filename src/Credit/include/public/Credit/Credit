@@ -3,14 +3,51 @@
 
 namespace Credit
 {
-   class CreditComputation
-   {
-   private:
-      static CreditComputeInfo ComputeAnnuity(CreditInfo &info);
-      static CreditComputeInfo ComputeDiff(CreditInfo info);
-      static Money ComputeDiffPayment(Money remainder, Percent interestRate, Month term);
+   /**
+ * @class CreditComputation
+ * @brief Class responsible for performing various credit computations.
+ *
+ * This class provides static methods to compute credit-related information using different methods.
+ */
 
-   public:
-      static CreditComputeInfo Compute(CreditInfo &info);
-   };
+class CreditComputation
+{
+private:
+   /**
+    * @brief Computes annuity for the credit based on given information.
+    *
+    * @param info Reference to CreditInfo containing credit parameters.
+    * @return CreditComputeInfo containing results of the annuity computation.
+    */
+   static CreditComputeInfo ComputeAnnuity(CreditInfo &info);
+
+   /**
+    * @brief Computes differentiated payments for the credit based on given information.
+    *
+    * @param info Copy of CreditInfo containing credit parameters.
+    * @return CreditComputeInfo containing results of the differentiation computation.
+    */
+   static CreditComputeInfo ComputeDiff(CreditInfo info);
+
+   /**
+    * @brief Computes a single differentiated payment.
+    *
+    * @param remainder The remaining amount of money to be paid.
+    * @param interestRate The interest rate for the credit.
+    * @param term The remaining term of the credit in months.
+    * @return Money representing the amount of the differentiated payment.
+    */
+   static Money ComputeDiffPayment(Money remainder, Percent interestRate, Month term);
+
+public:
+   /**
+    * @brief Computes credit information based on the given information.
+    *
+    * Depending on the CreditInfo provided, it delegates to either ComputeAnnuity or ComputeDiff.
+    *
+    * @param info Reference to CreditInfo containing credit parameters.
+    * @return CreditComputeInfo containing results of the credit computation.
+    */
+   static CreditComputeInfo Compute(CreditInfo &info);
+};
 }
