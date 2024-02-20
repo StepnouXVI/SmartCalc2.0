@@ -4,7 +4,7 @@
 
 namespace Equations
 {
-Equation::Equation(std::shared_ptr<std::list<std::shared_ptr<Operations::IOperation>>> operations)
+Equation::Equation(std::shared_ptr<std::list<std::shared_ptr<Operations::IOperation> > > operations)
 {
     _operations = operations;
     operations->reverse();
@@ -12,7 +12,7 @@ Equation::Equation(std::shared_ptr<std::list<std::shared_ptr<Operations::IOperat
 
 double Equation::Execute()
 {
-    std::list<double> numeric = {};
+    std::list<double> numeric;
 
     for (auto operation : *_operations)
     {

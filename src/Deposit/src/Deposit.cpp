@@ -1,19 +1,19 @@
-#include <Deposit/Deposit>
+#include <Deposit/DepositCompute>
 
 namespace Deposit
 {
 
-    Deposit::Deposit(const DepositInfo &info) : _currentState(info)
+    DepositComputer::DepositComputer(const DepositInfo &info) : _currentState(info)
     {
     }
 
-    Deposit::Deposit(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments) : _currentState(info),
+    DepositComputer::DepositComputer(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments) : _currentState(info),
                                                                                                                            _inputPayments(std::move(inputPayments)),
                                                                                                                            _outputPayments(std::move(outputPayments))
     {
     }
 
-    EndStatistic Deposit::ComputeEndStatistic()
+    EndStatistic DepositComputer::ComputeEndStatistic()
     {
 
         EndStatistic result = {.Amount = _currentState.InitialAmount, .AccruedInterest = 0, .TotalTax = 0};

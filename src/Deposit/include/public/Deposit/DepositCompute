@@ -44,7 +44,7 @@ namespace Deposit
      * @return EndStatistic
      * The final statistics of the deposit including the final amount, accrued interest, and total tax.
      */
-    class Deposit
+    class DepositComputer
     {
     private:
         DepositInfo _currentState;
@@ -53,10 +53,10 @@ namespace Deposit
 
     public:
         // Constructs a Deposit object with the given initial deposit information.
-        Deposit(const DepositInfo &info);
+        DepositComputer(const DepositInfo &info);
 
         // Constructs a Deposit object with initial deposit info and lists of input and output payments.
-        Deposit(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments);
+        DepositComputer(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments);
 
         // Computes the end statistics of the deposit based on the current state and transactions.
         EndStatistic ComputeEndStatistic();

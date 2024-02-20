@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+#include <cstddef>
 
 namespace Credit
 {
@@ -7,7 +7,7 @@ namespace Credit
      * @typedef Money
      * @brief Represents a monetary value using an unsigned integer type.
      */
-    using Money = std::size_t;
+    using Money = size_t;
 
     /**
      * @enum Type
@@ -35,5 +35,5 @@ namespace Credit
      * @typedef Term
      * @brief Represents the term length (duration) of a loan using an unsigned integer type.
      */
-    using Month = std::size_t;
+    using Month = size_t;
 }

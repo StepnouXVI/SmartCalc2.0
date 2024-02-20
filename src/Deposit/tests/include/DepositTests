@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <cmath>
-#include <Deposit/Deposit>
+#include <Deposit/DepositCompute>
 using namespace Deposit;
 
 #define ASYMMETRY(X, Y) std::abs((long double)X - (long double)Y) / ((long double)X + (long double)Y)
@@ -16,7 +16,7 @@ TEST(Success, Simple_test1)
                         .TaxRate = 0,
                         .PeriodOfPayment = 30};
 
-    Deposit::Deposit deposit = Deposit::Deposit(info);
+    DepositComputer deposit = DepositComputer(info);
 
     auto result = deposit.ComputeEndStatistic();
     ASSERT_LE(ASYMMETRY(2000000 / 100 * 11*2, (result.AccruedInterest)), 0.01);
@@ -33,7 +33,7 @@ TEST(Success, Simple_test2_with_capitalization)
                         .TaxRate = 0,
                         .PeriodOfPayment = 365};
 
-    Deposit::Deposit deposit = Deposit::Deposit(info);
+    DepositComputer deposit = DepositComputer(info);
 
     auto result = deposit.ComputeEndStatistic();
     ASSERT_LE(ASYMMETRY(2000000 * (std::pow(1.11, 5) - 1.0), (result.AccruedInterest)), 0.01);
