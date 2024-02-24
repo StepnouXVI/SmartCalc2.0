@@ -13,15 +13,12 @@ Numpad::Numpad(std::shared_ptr<QLineEdit> inputString, QWidget *pwgt) : QWidget(
     setLayout(layout);
 }
 
-Numpad::~Numpad()
-{
-}
 void Numpad::ButtonClicked()
 {
     QString str = ((QPushButton *)sender())->text();
     if (str == "=")
     {
-        //      calculate();
+        emit Calculate();
         return;
     }
 

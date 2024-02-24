@@ -3,11 +3,14 @@
 
 namespace Ui
 {
-namespace Consts
-{
-const int CELL_W = 40 * 5;
-const int CELL_H = 40 * 2;
-const QString DEFAULT_INPUT_STRING_TEXT = "Enter your expression there.";
-const QString DEFAULT_OUTPUT_STRING_TEXT = "The result or error will be displayed here.";
-} // namespace Consts
+    namespace Consts
+    {
+        const int CELL_W = 40 * 5;
+        const int CELL_H = 40 * 2;
+        const QString DEFAULT_INPUT_STRING_TEXT = "Enter your expression there.";
+        const QString DEFAULT_OUTPUT_STRING_TEXT = "The result or error will be displayed here.";
+        const QString DOUBLE_REGEX = "^-?[0-9]{1,15}([.][0-9]{1,10})?";
+        const QString DEFAULT_INPUT_RANGE_LINES_TEXT[4] = {"X min", "X max", "Y min", "Y max"};
+        const double DEFAULT_INPUT_RANGE_VALUES[4] = {-10, 10, -10, 10};
+    } // namespace Consts
 } // namespace Ui

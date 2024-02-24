@@ -43,6 +43,21 @@ TEST_F(OperationsTests, one_plus_one_eq_2)
     ASSERT_EQ(result, 2);
 }
 
+TEST_F(OperationsTests, minus_minus_5_eq_5)
+{
+    auto expression = make_shared<string>("--5");
+
+    ASSERT_TRUE(Factory != nullptr);
+    ASSERT_TRUE(Data != nullptr);
+    ASSERT_TRUE(Data->Operations != nullptr);
+    ASSERT_TRUE(Data->Operators != nullptr);
+
+    auto equation = Factory->CreateEquation(expression);
+    auto result = equation->Execute();
+
+    ASSERT_EQ(result, 5);
+}
+
 TEST_F(OperationsTests, 2_minus_1_eq_1)
 {
     auto expression = make_shared<string>("2-1");

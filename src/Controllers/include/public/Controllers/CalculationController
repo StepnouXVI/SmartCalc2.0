@@ -1,0 +1,23 @@
+#pragma once
+
+#include <Ui/Controllers/ICalculationController>
+#include <Calculation/Equation/EquationFactory>
+#include<Calculation/OperationData>
+
+namespace Controllers
+{
+    using namespace std;
+    class CalculationController : public Ui::ICalculationController
+    {
+    public:
+        double Execute(shared_ptr<string> expression) override;
+        double Execute(shared_ptr<string> expression, double x) override;
+        shared_ptr<vector<double>> Execute(shared_ptr<string> expression, double start, double end, size_t numberOfSteps) override;
+
+        CalculationController(std::shared_ptr<Calculation::OperationsData> _data);
+
+    private:
+        std::shared_ptr<Calculation::OperationsData> Data;
+        std::shared_ptr<Equations::EquationFactory> Factory;
+    };
+}

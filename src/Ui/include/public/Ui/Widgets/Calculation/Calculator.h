@@ -1,6 +1,6 @@
 #pragma once
 
-#include<Ui/Controllers/ICalculationController>
+#include <Ui/Controllers/ICalculationController>
 
 #include <QDialog>
 #include <QGridLayout>
@@ -11,12 +11,13 @@
 #include <QStack>
 #include <QWidget>
 #include <memory>
+#include <set>
+#include <QObject>
 
 namespace Ui
 {
-
-class Calculator : public QWidget
-{
+  class Calculator : public QWidget
+  {
     Q_OBJECT
 
   public:
@@ -28,10 +29,14 @@ class Calculator : public QWidget
     CalculationControllerPtr _controller;
 
   private:
-    shared_ptr<QLineEdit> createInputLine();
     shared_ptr<QLabel> createOutputLine();
 
+  public slots:
+    void Calculate();
+
   public:
-    Calculator(CalculationControllerPtr controller, QWidget *pwgt = 0);
-};
+    Calculator(CalculationControllerPtr controller, std::set<string> &functions, QWidget *pwgt = 0);
+  signals:
+    void CalculateWithX();
+  };
 } // namespace Ui

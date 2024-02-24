@@ -41,7 +41,7 @@ void OperationSet::fillBinaryOperations()
 
     for (const auto &operation : binaryOperations)
     {
-        addBinaryOperation(operation.first, operation.second, Left, operation.first == "^" ? High : Medium);
+        addBinaryOperation(operation.first, operation.second, Right, operation.first == "^" ? High : Medium);
     }
 }
 
@@ -63,7 +63,7 @@ void OperationSet::fillUnaryOperations()
 
     for (const auto &operation : unaryOperations)
     {
-        addUnaryOperation(operation.first, operation.second, Right, High);
+        addUnaryOperation(operation.first, operation.second, Left, High);
     }
 }
 

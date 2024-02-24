@@ -26,7 +26,7 @@
 #ifndef QCUSTOMPLOT_H
 #define QCUSTOMPLOT_H
 
-#include<QtCore/qglobal>
+#include<QtCore/QtGlobal>
 
 // some Qt version/configuration dependent macros to include or exclude certain
 // code paths:
@@ -48,7 +48,7 @@
 #endif
 #endif
 
-#include<qmath>
+#include<QtMath>
 
 #include <QtCore/QCache>
 #include <QtCore/QDateTime>
