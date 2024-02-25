@@ -4,7 +4,7 @@
 #include <Ui/Settings>
 #include <Ui/Widgets/Calculation/Calculator>
 #include <Ui/Widgets/Chart/ChartWidget>
-
+#include <Ui/Widgets/CalculationWithX/CalculationWithX>
 #include <QApplication>
 
 using namespace Ui;
@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
     QObject::connect(calculator, SIGNAL(CalculateWithX), chart, SLOT(Draw));
     tabs["Calculation"] = calculator;
     tabs["Chart"] = chart;
+    tabs["X Calculation"] = new CalculationWithX(calcController);
     MainWindow main_window(tabs);
 
     QObject::connect(calculator, SIGNAL(CalculateWithX), &main_window, SLOT(OpenTab("Chart")));

@@ -1,6 +1,6 @@
 #include <Ui/Consts/Consts>
 #include <Ui/Settings>
-#include <Ui/Styles/CalculatorStyles>
+#include <Ui/Styles/Styles>
 #include <Ui/Widgets/Calculation/Calculator>
 #include <Ui/Widgets/Calculation/Numpad>
 #include <Ui/Widgets/Calculation/FunctionMenu>

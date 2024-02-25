@@ -180,3 +180,43 @@ TEST_F(OperationsTests, incorrect_expression_3_operators)
 
     ASSERT_THROW(equation->Execute(), std::runtime_error);
 }
+
+
+TEST_F(OperationsTests, exp_1e2_eq_100)
+{
+    auto expression = make_shared<string>("1e2");
+
+    auto equation = Factory->CreateEquation(expression);
+    auto result = equation->Execute();
+
+    ASSERT_EQ(result, 100);
+}
+
+
+TEST_F(OperationsTests, exp_122e3_eq_1220)
+{
+    auto expression = make_shared<string>("1.22e3");
+
+    auto equation = Factory->CreateEquation(expression);
+    auto result = equation->Execute();
+
+    ASSERT_EQ(result, 1220);
+}
+
+TEST_F(OperationsTests, incorrect_expression_with_exp)
+{
+    auto expression = make_shared<string>("1e");
+
+    auto equation = Factory->CreateEquation(expression);
+
+    ASSERT_THROW(equation->Execute(), std::runtime_error);
+}
+
+TEST_F(OperationsTests, incorrect_expression_with_exp_2)
+{
+    auto expression = make_shared<string>("e10");
+
+    auto equation = Factory->CreateEquation(expression);
+
+    ASSERT_THROW(equation->Execute(), std::runtime_error);
+}

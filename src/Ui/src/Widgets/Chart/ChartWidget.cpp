@@ -75,9 +75,9 @@ std::shared_ptr<QLineEdit> ChartWidget::createInputRangeLine(QString placeHolder
 
 QPushButton *ChartWidget::createDrawButton()
 {
-    auto drawButton = new QPushButton(this);
+    auto drawButton = new QPushButton("Draw", this);
     drawButton->setMinimumSize(4 * Settings::Instance().CellSetting().W, 2 * Settings::Instance().CellSetting().H);
-    drawButton->setStyleSheet(Styles::EqualButtonStyle);
+    drawButton->setStyleSheet(Styles::OperandButtonStyle);
     connect(drawButton, &QPushButton::clicked, this, &Draw);
     return drawButton;
 }

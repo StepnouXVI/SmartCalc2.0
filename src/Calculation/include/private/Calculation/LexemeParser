@@ -48,6 +48,7 @@ class LexemeParser
     void lettersProcession();
     void digitProcession();
     void bracketProcession();
+    void exponentProcession();
 
   public:
     LexemeParser(OperationDataPtr data);

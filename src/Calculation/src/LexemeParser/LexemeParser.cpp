@@ -34,7 +34,10 @@ void LexemeParser::getLexeme()
         digitProcession();
         break;
     case letter:
-        lettersProcession();
+        if (*_currentSymbol == 'e')
+            exponentProcession();
+        else
+            lettersProcession();
         break;
     case operand:
         operatorProcession();
@@ -105,6 +108,14 @@ void Preprocessor::LexemeParser::lettersProcession()
         _currentSymbol++;
 
     _result->push(std::string(start, _currentSymbol));
+}
+
+void Preprocessor::LexemeParser::exponentProcession()
+{
+    _result->push(std::string("*"));
+    _result->push(std::string("10"));
+    _result->push(std::string("^"));
+    _currentSymbol++;
 }
 
 void Preprocessor::LexemeParser::digitProcession()
