@@ -141,7 +141,7 @@ void Equations::EquationFactory::leftAssociativeProcession(shared_ptr<IOperation
 
 void Equations::EquationFactory::rightAssociativeProcession(shared_ptr<IOperation> operation)
 {
-    while (!_tmpStack->empty() && operation->GetPriority() <= _tmpStack->top()->GetPriority())
+    while (!_tmpStack->empty() && operation->GetPriority() < _tmpStack->top()->GetPriority())
     {
         _resultList->push_front(_tmpStack->top());
         _tmpStack->pop();

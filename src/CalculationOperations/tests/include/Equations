@@ -68,6 +68,26 @@ TEST_F(OperationsTests, 2_minus_1_eq_1)
     ASSERT_EQ(result, 1);
 }
 
+TEST_F(OperationsTests, normal_expression)
+{
+    auto expression = make_shared<string>("100-5*10");
+
+    auto equation = Factory->CreateEquation(expression);
+    auto result = equation->Execute();
+
+    ASSERT_EQ(result, 50);
+}
+
+TEST_F(OperationsTests, normal_expression_2)
+{
+    auto expression = make_shared<string>("5*cos(25) - 6");
+
+    auto equation = Factory->CreateEquation(expression);
+    auto result = equation->Execute();
+
+    ASSERT_EQ(result, 5.0*cos(25.0) - 6.0);
+}
+
 TEST_F(OperationsTests, 2_power_3_eq_8)
 {
     auto expression = make_shared<string>("2^3");

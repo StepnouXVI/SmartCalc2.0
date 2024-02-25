@@ -39,9 +39,11 @@ void OperationSet::fillBinaryOperations()
         {"*", [](double a, double b) { return a * b; }},          {"/", [](double a, double b) { return a / b; }},
         {"^", [](double a, double b) { return std::pow(a, b); }}, {"%", [](double a, double b) { return fmod(a, b); }}};
 
+    Priority priorities[] = {Low, Low, Medium, Medium, High, Medium};
+    int i = 0;
     for (const auto &operation : binaryOperations)
     {
-        addBinaryOperation(operation.first, operation.second, Right, operation.first == "^" ? High : Medium);
+        addBinaryOperation(operation.first, operation.second, Left, priorities[i++]);
     }
 }
 
@@ -63,7 +65,7 @@ void OperationSet::fillUnaryOperations()
 
     for (const auto &operation : unaryOperations)
     {
-        addUnaryOperation(operation.first, operation.second, Left, High);
+        addUnaryOperation(operation.first, operation.second, Right, High);
     }
 }
 
