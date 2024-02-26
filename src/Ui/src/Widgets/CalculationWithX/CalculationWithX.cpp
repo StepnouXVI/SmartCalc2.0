@@ -79,6 +79,7 @@ QPushButton *CalculationWithX::createCalcButton()
     connect(calcButton, &QPushButton::clicked, this, &Calculate);
 
     auto font = calcButton->font();
+    font.setBold(true);
     font.setPixelSize(Settings::Instance().CellSetting().H / 2);
     calcButton->setFont(font);
     return calcButton;

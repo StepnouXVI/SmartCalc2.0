@@ -78,6 +78,11 @@ QPushButton *ChartWidget::createDrawButton()
     auto drawButton = new QPushButton("Draw", this);
     drawButton->setMinimumSize(4 * Settings::Instance().CellSetting().W, 2 * Settings::Instance().CellSetting().H);
     drawButton->setStyleSheet(Styles::OperandButtonStyle);
+
+    auto font = drawButton->font();
+    font.setBold(true);
+    font.setPixelSize(Settings::Instance().CellSetting().H / 2);
+    drawButton->setFont(font);
     connect(drawButton, &QPushButton::clicked, this, &Draw);
     return drawButton;
 }

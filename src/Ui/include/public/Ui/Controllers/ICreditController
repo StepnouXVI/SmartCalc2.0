@@ -1,12 +1,26 @@
 #pragma once
 
+#include <memory>
+#include <tuple>
+#include <vector>
+
 namespace Ui
 {
-using namespace std;
+  using namespace std;
+  struct TotalCreditInfo
+  {
+    size_t TotalPayment;
+    size_t TotalOverpayment;
+    std::shared_ptr<std::vector<size_t>> Payments;
+  };
 
-class ICreditController
-{
+  class ICreditController
+  {
+  public:
+    virtual TotalCreditInfo ComputeCreditInfo(size_t totalAmount, size_t interestRate, size_t term, bool isAnnuity) = 0;
+
   protected:
     virtual ~ICreditController() = default;
-};
+  };
+  using ICreditControllerPtr = shared_ptr<ICreditController>;
 } // namespace Ui

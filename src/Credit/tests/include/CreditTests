@@ -7,14 +7,17 @@ using namespace Credit;
 
 #define ASYMMETRY(X, Y) std::abs((long double)X - (long double)Y) / ((long double)X + (long double)Y)
 
-
 TEST(Success, Annuity)
 {
     CreditInfo info(12, 36, 20000, Type::Annuity);
     auto result = CreditComputation::Compute(info);
     ASSERT_EQ(result.MonthlyPayment, 664);
-    ASSERT_EQ(result.TotalOverpayment, 664*36-20000);
-    ASSERT_EQ(result.TotalPayment, 664*36);
+    ASSERT_EQ(result.TotalOverpayment, 664 * 36 - 20000);
+    ASSERT_EQ(result.TotalPayment, 664 * 36);
+    for (auto &payment : *result.Payments)
+    {
+        ASSERT_LE(ASYMMETRY(payment, 664), 0.005);
+    }
 }
 
 TEST(Success, Differentiated)

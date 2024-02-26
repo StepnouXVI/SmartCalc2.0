@@ -1,0 +1,11 @@
+#include <Ui/Controllers/ICreditController>
+
+namespace Controllers
+{
+    class CreditController : public Ui::ICreditController
+    {
+    public:
+        CreditController() = default;
+        Ui::TotalCreditInfo ComputeCreditInfo(size_t totalAmount, size_t interestRate, size_t term, bool isAnnuity) override;
+    };
+}

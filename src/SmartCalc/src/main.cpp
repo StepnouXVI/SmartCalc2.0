@@ -5,6 +5,8 @@
 #include <Ui/Widgets/Calculation/Calculator>
 #include <Ui/Widgets/Chart/ChartWidget>
 #include <Ui/Widgets/CalculationWithX/CalculationWithX>
+#include <Ui/Widgets/Credit/CreditWidget>
+#include <Controllers/CreditController>
 #include <QApplication>
 
 using namespace Ui;
@@ -26,14 +28,11 @@ int main(int argc, char *argv[])
     auto tabs = map<string, QWidget *>();
     auto calculator = new Calculator(calcController, functions);
     auto chart = new ChartWidget(calcController);
-    QObject::connect(calculator, SIGNAL(CalculateWithX), chart, SLOT(Draw));
     tabs["Calculation"] = calculator;
     tabs["Chart"] = chart;
     tabs["X Calculation"] = new CalculationWithX(calcController);
+    tabs["Credit"] = new CreditWidget(std::make_shared<Controllers::CreditController>());
     MainWindow main_window(tabs);
-
-    QObject::connect(calculator, SIGNAL(CalculateWithX), &main_window, SLOT(OpenTab("Chart")));
-
     main_window.show();
     app.setStyle("fusion");
     return app.exec();

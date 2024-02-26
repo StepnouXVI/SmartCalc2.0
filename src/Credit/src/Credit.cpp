@@ -15,6 +15,8 @@ namespace Credit
         result.TotalPayment = result.MonthlyPayment * info.Term;
         result.TotalOverpayment = result.TotalPayment - info.TotalAmount;
 
+        result.Payments = std::make_shared<std::vector<Money>>(info.Term, result.MonthlyPayment);
+
         return result;
     }
 
@@ -25,6 +27,7 @@ namespace Credit
         for (int i = 0; i < info.Term; i++)
         {
             Money payment = bodyPayment + ComputeDiffPayment(body, info.InterestRate, info.Term - i);
+            result.Payments->push_back(payment);
             result.TotalPayment += payment;
             body -= bodyPayment;
         }

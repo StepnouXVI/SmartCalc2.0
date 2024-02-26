@@ -1,5 +1,7 @@
 #pragma once
 #include <Credit/Types>
+#include <vector>
+#include <memory>
 
 namespace Credit
 {
@@ -20,6 +22,7 @@ namespace Credit
         Money MonthlyPayment = 0;
         Money TotalOverpayment = 0;
         Money TotalPayment = 0;
+        std::shared_ptr<std::vector<Money>> Payments = std::make_shared<std::vector<Money>>();
 
         CreditComputeInfo(Money monthlyPayment, Money totalOverpayment, Money totalPayment);
         CreditComputeInfo() = default;
