@@ -17,9 +17,9 @@ namespace Ui
     {
         // set hotkey (numpad enter and basic enter)
         QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this);
-        connect(shortcut, &QShortcut::activated,this, &Calculate);
+        connect(shortcut, &QShortcut::activated, this, &Calculate);
         shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);
-        connect(shortcut, &QShortcut::activated,this, &Calculate);
+        connect(shortcut, &QShortcut::activated, this, &Calculate);
 
         _inputString = Synchronizer::GetNewLine();
         _outputString = createOutputLine();
@@ -57,7 +57,7 @@ namespace Ui
     void Calculator::Calculate()
     {
         auto text = _inputString->text();
-        if(text.contains("x"))
+        if (text.contains("x"))
         {
             emit CalculateWithX();
             return;

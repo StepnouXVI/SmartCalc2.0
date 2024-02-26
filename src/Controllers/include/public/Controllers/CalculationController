@@ -2,7 +2,7 @@
 
 #include <Ui/Controllers/ICalculationController>
 #include <Calculation/Equation/EquationFactory>
-#include<Calculation/OperationData>
+#include <Calculation/OperationData>
 
 namespace Controllers
 {

@@ -5,7 +5,7 @@ using namespace Credit;
 Ui::TotalCreditInfo Controllers::CreditController::ComputeCreditInfo(size_t totalAmount, size_t interestRate, size_t term, bool isAnnuity)
 {
     CreditInfo info;
-    info.InterestRate = 0 <= interestRate && interestRate <= 100 ? (double)interestRate/100.0 : 0;
+    info.InterestRate = 0 <= interestRate && interestRate <= 100 ? interestRate : 0;
     info.Term = term;
     info.TotalAmount = totalAmount;
     info.Type = isAnnuity ? Type::Annuity : Type::Diff;

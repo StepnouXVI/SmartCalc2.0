@@ -7,7 +7,7 @@ namespace Equations
   class Equation
   {
   private:
-    typename  std::shared_ptr<typename std::list<typename std::shared_ptr<typename Operations::IOperation>>> _operations;
+    typename std::shared_ptr<typename std::list<typename std::shared_ptr<typename Operations::IOperation>>> _operations;
 
   public:
     Equation(std::shared_ptr<std::list<std::shared_ptr<Operations::IOperation>>>);

@@ -18,7 +18,7 @@ using namespace Ui;
 CalculationWithX::CalculationWithX(CalculationControllerPtr controller, QWidget *pwgt)
     : QWidget(pwgt), _controller(controller)
 {
-        // set hotkey (numpad enter and basic enter)
+    // set hotkey (numpad enter and basic enter)
     QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_Enter), this);
     connect(shortcut, &QShortcut::activated, this, &Calculate);
     shortcut = new QShortcut(QKeySequence(Qt::Key_Return), this);

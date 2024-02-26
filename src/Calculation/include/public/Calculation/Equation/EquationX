@@ -9,8 +9,8 @@
 
 namespace Equations
 {
-class EquationWithX : private Equation
-{
+  class EquationWithX : private Equation
+  {
   private:
     std::shared_ptr<Operations::NumberOperation> _x = nullptr;
 
@@ -25,5 +25,5 @@ class EquationWithX : private Equation
     double operator()(double x);
     std::vector<double> operator()(double start, double end, size_t numberOfSteps);
     void operator()(double start, double end, size_t numberOfSteps, std::vector<double> &result);
-};
+  };
 } // namespace Equations

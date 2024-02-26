@@ -1,17 +1,17 @@
 #pragma once
 
-#include<Calculation/OperationData>
+#include <Calculation/OperationData>
 
 #include <functional>
 
 namespace CalculationOperations
 {
-using namespace Operations;
-using namespace Calculation;
-using namespace std;
+  using namespace Operations;
+  using namespace Calculation;
+  using namespace std;
 
-class OperationSet
-{
+  class OperationSet
+  {
   private:
     shared_ptr<OperationsData> _data = make_shared<OperationsData>();
     static OperationSet *_instance;
@@ -30,5 +30,5 @@ class OperationSet
     static OperationSet &getInstance();
 
     shared_ptr<OperationsData> getData();
-};
+  };
 } // namespace CalculationOperations

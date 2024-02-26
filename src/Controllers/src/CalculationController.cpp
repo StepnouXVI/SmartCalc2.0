@@ -1,10 +1,10 @@
-#include  <Controllers\CalculationController>
+#include <Controllers\CalculationController>
 namespace Controllers
 {
     using namespace std;
     using namespace Calculation;
     using namespace Equations;
-    
+
     CalculationController::CalculationController(shared_ptr<OperationsData> _data)
         : Data(_data), Factory(make_shared<EquationFactory>(_data)) {}
 

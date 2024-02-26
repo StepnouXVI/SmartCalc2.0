@@ -9,16 +9,16 @@
 
 namespace Preprocessor
 {
-class LexemeParser;
+  class LexemeParser;
 }
 
 namespace Equations
 {
-using namespace Operations;
-using namespace Calculation;
-using namespace std;
-class EquationFactory
-{
+  using namespace Operations;
+  using namespace Calculation;
+  using namespace std;
+  class EquationFactory
+  {
   public:
     using OperationPtr = shared_ptr<IOperation>;
     using OperationsListPtr = shared_ptr<std::list<OperationPtr>>;
@@ -27,11 +27,11 @@ class EquationFactory
   private:
     enum OperationType
     {
-        Number,
-        Function,
-        OpenBracket,
-        CloseBracket,
-        X
+      Number,
+      Function,
+      OpenBracket,
+      CloseBracket,
+      X
     };
 
   private:
@@ -63,5 +63,5 @@ class EquationFactory
 
     shared_ptr<Equation> CreateEquation(shared_ptr<string> expression);
     shared_ptr<EquationWithX> CreateEquationWithX(shared_ptr<string> expression);
-};
+  };
 } // namespace Equations

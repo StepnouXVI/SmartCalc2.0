@@ -1,4 +1,4 @@
-#include<Ui/Widgets/Calculation/Numpad>
+#include <Ui/Widgets/Calculation/Numpad>
 
 using namespace Ui;
 #include <QApplication>

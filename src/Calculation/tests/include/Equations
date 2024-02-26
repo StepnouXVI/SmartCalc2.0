@@ -1,9 +1,9 @@
 #include <Calculation/Equation/Equation>
 #include <Calculation/Equation/EquationX>
-#include<Calculation/Operations/BinaryOperation>
-#include<Calculation/Operations/NumberOperation>
-#include<Calculation/Operations/UnaryOperation>
-#include<gtest/gtest.h>
+#include <Calculation/Operations/BinaryOperation>
+#include <Calculation/Operations/NumberOperation>
+#include <Calculation/Operations/UnaryOperation>
+#include <gtest/gtest.h>
 
 using namespace std;
 using namespace Operations;
@@ -11,12 +11,16 @@ using namespace Equations;
 
 class EquationTests : public ::testing::Test
 {
-  protected:
+protected:
     void SetUp() override
     {
         auto add =
-            make_shared<BinaryOperation>([](double a, double b) { return a + b; }, Associativity::Left, Priority::Low);
-        auto negate = make_shared<UnaryOperation>([](double a) { return -a; }, Priority::Low, Associativity::Left);
+            make_shared<BinaryOperation>([](double a, double b)
+                                         { return a + b; },
+                                         Associativity::Left, Priority::Low);
+        auto negate = make_shared<UnaryOperation>([](double a)
+                                                  { return -a; },
+                                                  Priority::Low, Associativity::Left);
 
         auto n1 = make_shared<NumberOperation>(1);
         auto n2 = make_shared<NumberOperation>(2);
@@ -44,7 +48,7 @@ class EquationTests : public ::testing::Test
         incorrectSizeData->clear();
     }
 
-  public:
+public:
     static shared_ptr<NumberOperation> x;
     static shared_ptr<list<shared_ptr<Operations::IOperation>>> correctDataWithX;
     static shared_ptr<list<shared_ptr<Operations::IOperation>>> correctData;

@@ -144,8 +144,6 @@ QCheckBox::indicator {
   width: 36px;
   height: 36px;
 }
-
-
 )";
 }
 

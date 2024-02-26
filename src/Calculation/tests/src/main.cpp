@@ -1,7 +1,7 @@
-#include<Equations>
-#include<LexemeParser>
-#include<Operations>
-#include<gtest/gtest.h>
+#include <Equations>
+#include <LexemeParser>
+#include <Operations>
+#include <gtest/gtest.h>
 
 int main(int argc, char **argv)
 {

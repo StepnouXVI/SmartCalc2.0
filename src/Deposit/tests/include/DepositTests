@@ -10,7 +10,7 @@ using namespace Deposit;
 TEST(Success, Simple_test1)
 {
     DepositInfo info = {.InitialAmount = 2000000,
-                        .Term = 365*2,
+                        .Term = 365 * 2,
                         .InterestRate = 0.11,
                         .Capitalization = false,
                         .TaxRate = 0,
@@ -19,7 +19,7 @@ TEST(Success, Simple_test1)
     DepositComputer deposit = DepositComputer(info);
 
     auto result = deposit.ComputeEndStatistic();
-    ASSERT_LE(ASYMMETRY(2000000 / 100 * 11*2, (result.AccruedInterest)), 0.01);
+    ASSERT_LE(ASYMMETRY(2000000 / 100 * 11 * 2, (result.AccruedInterest)), 0.01);
     ASSERT_LE(ASYMMETRY(2000000 * 1.22, (result.Amount)), 0.01);
     ASSERT_EQ(result.TotalTax, 0);
 }

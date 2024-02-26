@@ -1,6 +1,6 @@
-#include<Equations>
-#include<EquationsWithX>
-#include<gtest/gtest.h>
+#include <Equations>
+#include <EquationsWithX>
+#include <gtest/gtest.h>
 
 int main(int argc, char **argv)
 {

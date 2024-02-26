@@ -17,13 +17,17 @@ CreditWidget::CreditWidget(ICreditControllerPtr controller, QWidget *pwgt) : QWi
     _inputTerm = createInputLine();
     _inputAmount = createInputLine();
     _paymentList = std::make_shared<ScrollableList>();
+    _TotalOverpaymentLabel = createInfoLabelShared("Total Overpayment:", 5, 2);
+    _TotalPayment = createInfoLabelShared("Total Payment:", 5, 2);
 
     connect(_sliderInterestRate.get(), &QSlider::valueChanged, this, &CreditWidget::SynchronizeSliderAndSpinBox);
     connect(_inputInterestRate.get(), &QLineEdit::textChanged, this, &CreditWidget::SynchronizeSliderAndSpinBox);
 
+    _paymentList->setMinimumSize(10 * Settings::Instance().CellSetting().W, 11 * Settings::Instance().CellSetting().H);
+
     auto layout = new QGridLayout(this);
     layout->addWidget(_sliderInterestRate.get(), 0, 0, 1, 2);
-    layout->addWidget(createInfoLabel("Interest Rate:", 2, 2), 1, 0, 1, 1);
+    layout->addWidget(createInfoLabel("Interest Rate(%):", 2, 2), 1, 0, 1, 1);
     layout->addWidget(_inputInterestRate.get(), 1, 1, 1, 1);
     layout->addWidget(createInfoLabel("Term (Months):", 2, 2), 2, 0, 1, 1);
     layout->addWidget(_inputTerm.get(), 2, 1, 1, 1);
@@ -31,14 +35,16 @@ CreditWidget::CreditWidget(ICreditControllerPtr controller, QWidget *pwgt) : QWi
     layout->addWidget(_inputAmount.get(), 3, 1, 1, 1);
     layout->addWidget(createCalcButton(), 4, 1, 1, 1);
     layout->addWidget(createCreditTypeBox().get(), 4, 0, 1, 1);
-    layout->addWidget(_paymentList.get(), 0, 2, 5, 1);
+    layout->addWidget(_TotalOverpaymentLabel.get(), 4, 2, 1, 1);
+    layout->addWidget(_TotalPayment.get(), 4, 3, 1, 1);
+    layout->addWidget(_paymentList.get(), 0, 2, 4, 2);
 
     setLayout(layout);
 }
 
 QLabel *Ui::CreditWidget::createPaymentLabel(size_t month, size_t payment)
 {
-    auto text = QString("Month: %1 Payment: %2").arg(month).arg(payment);
+    auto text = QString("Month: %1 | Payment: %2").arg(month).arg(payment);
     auto label = new QLabel(text, this);
     label->setMinimumSize(10 * Settings::Instance().CellSetting().W, 1 * Settings::Instance().CellSetting().H);
     label->setAlignment(Qt::AlignCenter);
@@ -46,7 +52,7 @@ QLabel *Ui::CreditWidget::createPaymentLabel(size_t month, size_t payment)
 
     auto font = label->font();
     font.setBold(true);
-    font.setPixelSize(Settings::Instance().CellSetting().H / 4);
+    font.setPixelSize(Settings::Instance().CellSetting().H / 3);
     label->setFont(font);
     return label;
 }
@@ -61,6 +67,20 @@ QLabel *CreditWidget::createInfoLabel(const QString &text, int w, int h)
     auto font = label->font();
     font.setBold(true);
     font.setPixelSize(Settings::Instance().CellSetting().H * h / 4);
+    label->setFont(font);
+    return label;
+}
+
+std::shared_ptr<QLabel> CreditWidget::createInfoLabelShared(const QString &text, int w, int h)
+{
+    auto label = std::make_shared<QLabel>(text, this);
+    label->setMinimumSize(w * Settings::Instance().CellSetting().W, h * Settings::Instance().CellSetting().H);
+    label->setAlignment(Qt::AlignCenter);
+    label->setStyleSheet(Styles::OutputLineStyle);
+
+    auto font = label->font();
+    font.setBold(true);
+    font.setPixelSize(Settings::Instance().CellSetting().H * h / 6);
     label->setFont(font);
     return label;
 }
@@ -110,7 +130,7 @@ QPushButton *CreditWidget::createCalcButton()
 
 std::shared_ptr<QCheckBox> CreditWidget::createCreditTypeBox()
 {
-    auto checkBox = std::make_shared<QCheckBox>("Is Annuity",this);
+    auto checkBox = std::make_shared<QCheckBox>("Is Annuity", this);
     checkBox->setMinimumSize(2 * Settings::Instance().CellSetting().W, 2 * Settings::Instance().CellSetting().H);
 
     auto font = checkBox->font();
@@ -133,10 +153,12 @@ void CreditWidget::UpdatePaymentList()
     bool isAnnuity = _creditTypeBox->isChecked();
     auto result = _controller->ComputeCreditInfo(totalAmount, interestRate, term, isAnnuity);
 
-    for(int i = 0; i < result.Payments->size(); i++)
+    for (int i = 0; i < result.Payments->size(); i++)
     {
         _paymentList->AddItem(createPaymentLabel(i + 1, result.Payments->at(i)));
     }
+    _TotalOverpaymentLabel->setText(QString("Total Overpayment: %1").arg(result.TotalOverpayment));
+    _TotalPayment->setText(QString("Total Payment: %1").arg(result.TotalPayment));
 }
 
 void CreditWidget::SynchronizeSliderAndSpinBox()

@@ -6,8 +6,8 @@
 
 namespace Operations
 {
-class IOperation
-{
+  class IOperation
+  {
   public:
     virtual Priority GetPriority() const = 0;
     virtual Associativity GetAssociativity() const = 0;
@@ -15,5 +15,5 @@ class IOperation
 
   protected:
     virtual ~IOperation() = default;
-};
+  };
 } // namespace Operations

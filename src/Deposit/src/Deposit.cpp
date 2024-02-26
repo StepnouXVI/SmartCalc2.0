@@ -8,8 +8,8 @@ namespace Deposit
     }
 
     DepositComputer::DepositComputer(const DepositInfo &info, std::queue<Payment> &&inputPayments, std::queue<Payment> &&outputPayments) : _currentState(info),
-                                                                                                                           _inputPayments(std::move(inputPayments)),
-                                                                                                                           _outputPayments(std::move(outputPayments))
+                                                                                                                                           _inputPayments(std::move(inputPayments)),
+                                                                                                                                           _outputPayments(std::move(outputPayments))
     {
     }
 

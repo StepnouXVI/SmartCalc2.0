@@ -27,12 +27,12 @@ namespace Ui
         std::shared_ptr<QLabel> _TotalOverpaymentLabel;
         std::shared_ptr<QLabel> _TotalPayment;
 
-
-        QLabel* createPaymentLabel(size_t month, size_t payment);
+        QLabel *createPaymentLabel(size_t month, size_t payment);
 
         ICreditControllerPtr _controller;
 
         QLabel *createInfoLabel(const QString &text, int w, int h);
+        std::shared_ptr<QLabel> createInfoLabelShared(const QString &text, int w, int h);
         std::shared_ptr<QLineEdit> createInputLine();
         std::shared_ptr<QSlider> createSlider();
         QPushButton *createCalcButton();
